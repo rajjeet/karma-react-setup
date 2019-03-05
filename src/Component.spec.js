@@ -1,9 +1,15 @@
-const React = require('react');
+import React from 'react';
 import Component from './Component';
-const ReactDOM = require('react-dom');
+import {mount} from 'enzyme';
 
 describe('root', function () {
-  it('renders without problems', function () {
-    ReactDOM.render(<Component />, document.getElementById('react-root'))
+  let wrapper;
+  beforeEach(() => {
+    wrapper = mount(<Component/>);
   });
+
+  it('renders without problems', function () {
+    console.log(wrapper.debug());
+  });
+
 });

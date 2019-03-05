@@ -3,13 +3,12 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['mocha', 'chai'],
     files: [
-      'tests.webpack.js'
+      'testSetup.js'
     ],
     exclude: [],
     preprocessors: {
-      'tests.webpack.js': ['webpack']
+      'testSetup.js': ['webpack', 'sourcemap']
     },
-    customContextFile: 'karmaContext.html',
     reporters: ['progress'],
     port: 9876,
     colors: true,
