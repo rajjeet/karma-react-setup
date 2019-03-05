@@ -3,12 +3,13 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['mocha', 'chai'],
     files: [
-      'src/**/*.js',
-      'test/**/*.js'
+      'tests.webpack.js'
     ],
-    customContextFile: 'test/test.html',
     exclude: [],
-    preprocessors: {},
+    preprocessors: {
+      'tests.webpack.js': ['webpack']
+    },
+    customContextFile: 'karmaContext.html',
     reporters: ['progress'],
     port: 9876,
     colors: true,
@@ -16,6 +17,24 @@ module.exports = function (config) {
     autoWatch: false,
     browsers: ['ChromeHeadless'],
     singleRun: true,
-    concurrency: Infinity
+    concurrency: Infinity,
+    webpack: {
+      mode: 'development',
+      devtool: 'inline-source-map',
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react']
+            }
+          }
+        ]
+      }
+    },
+    webpackServer: {
+      noInfo: true
+    }
   })
 };
