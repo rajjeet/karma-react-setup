@@ -6,6 +6,7 @@ module.exports = function (config) {
       'src/**/*.js',
       'test/**/*.js'
     ],
+    customContextFile: 'test/test.html',
     exclude: [],
     preprocessors: {},
     reporters: ['progress'],
@@ -13,7 +14,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
     singleRun: true,
     concurrency: Infinity
   })
