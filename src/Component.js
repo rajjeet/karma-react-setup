@@ -1,9 +1,11 @@
-const React = require('react');
+import React from 'react';
+import 'semantic-ui-css/semantic.min.css';
+import {Form} from 'semantic-ui-react';
 
-class Component extends React.Component {
-  render() {
-    return <div>Hello</div>;
-  }
-}
+const Component = ({value}) => (
+  <Form>
+    <Form.Input name={'FirstName'} value={value} onChange={(e, d) => console.log(d)}/>
+  </Form>
+);
 
 export default Component;
